@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .wrapper {
+    @apply flex mr-5;
+  }
+
+  .btn {
+    @apply flex flex-row justify-center my-1.5;// m-1.5 mr-5;
+
+    & .img {
+      @apply cursor-pointer relative w-10 h-10 p-2.5 border-0 rounded bg-color-label-base hover:bg-color-label-hover transition duration-500 ease-in-out;
+    }
+
+    & .checkbox {
+      @apply mr-0.5;
+    }
+
+    & .active {
+      @apply bg-color-label-active hover:bg-color-label-hover-checked transition duration-500 ease-in-out;
+    }
+  }
+
+  .search {
+    @apply py-1 px-5 outline-0 bg-color-input-base hover:bg-color-input-hover focus:bg-color-input-focus text-color-text-input placeholder-color-text-input transition duration-500 ease-in-out;
+  }
+}
