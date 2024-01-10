@@ -3,13 +3,13 @@
 <!--  Sorting-->
   <div class="wrapper ml-5">
     <div class="btn">
-      <label class="relative">
+      <label class="relative" (click)="onTurnSorting(true)">
         <input class="absolute hidden" type="radio" name="arrow">
-        <img class="btn img" src="assets/icon-arrow-down.svg" alt="Arrow Down">
+        <img class="btn img" src="assets/icon-arrow-down.svg" alt="Sort from A to Z" [ngClass]="{active: isSorted}"/>
       </label>
-      <label class="relative">
+      <label class="relative"  (click)="onTurnSorting(false)">
         <input class="absolute hidden" type="radio" name="arrow">
-        <img class="btn img" src="assets/icon-arrow-up.svg" alt="Arrow Up">
+        <img class="btn img active" src="assets/icon-arrow-up.svg" alt="Sort from Z to A" [ngClass]="{active: !isSorted}"/>
       </label>
     </div>
   </div>
@@ -52,7 +52,7 @@
 
       <label class="relative">
         <input class="absolute hidden" type="checkbox" name="arrow">
-        <img class="btn img checkbox" src="assets/icon-stormy.svg" alt="Arrow Up">
+        <img class="btn img checkbox" src="assets/icon-blizzard.svg" alt="Arrow Up">
       </label>
 
       <label class="relative">

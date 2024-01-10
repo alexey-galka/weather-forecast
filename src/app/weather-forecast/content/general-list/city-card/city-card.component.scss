@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+  .city_card {
+    @apply flex flex-row justify-between w-full bg-color-light-grey mb-0.5 cursor-pointer outline-0 rounded text-xl
+    hover:bg-color-label-hover hover:text-color-blue-lightest font-light transition transform duration-300 ease-in-out
+  }
+
+  .city_card__city {
+    @apply py-4 px-5
+  }
+
+  .city_card__temperature {
+    @apply py-4 px-5
+  }
+
+}

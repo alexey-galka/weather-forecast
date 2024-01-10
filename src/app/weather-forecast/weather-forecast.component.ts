@@ -7,7 +7,7 @@ import {ChartComponent} from "./chart/chart.component";
   standalone: true,
   imports: [
     ContentComponent,
-    ChartComponent
+    ChartComponent,
   ],
   templateUrl: './weather-forecast.component.html',
   styleUrl: './weather-forecast.component.scss'
