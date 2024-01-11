@@ -9,7 +9,7 @@ export interface WeatherDataInterface {
     localtime_epoch: number,
     localtime: string,
   },
-  current?: {
+  current: {
     temp_c: number,
     wind_kph: number,
     wind_degree: number,

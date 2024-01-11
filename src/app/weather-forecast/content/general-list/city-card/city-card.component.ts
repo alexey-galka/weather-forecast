@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {WeatherService} from "../../../services/weather.service";
+import {Component, Input} from '@angular/core';
+import {WeatherDataInterface} from "../../../interfaces/weather-data.interface";
 
 @Component({
   selector: 'app-city-card',
@@ -9,5 +9,6 @@ import {WeatherService} from "../../../services/weather.service";
   styleUrl: './city-card.component.scss'
 })
 export class CityCardComponent {
+  @Input() weatherData!: WeatherDataInterface;
 
 }
