@@ -1,3 +1,5 @@
-<div class="m-0.5" *ngFor="let city of cities">
-  <app-city-card [weatherData]="city"></app-city-card>
+<div cdkDropList class="cities-list" (cdkDropListDropped)="drop($event)">
+  @for (city of cities; track city) {
+    <app-city-card class="city-box" cdkDrag [weatherData]="city">{{city}}</app-city-card>
+  }
 </div>

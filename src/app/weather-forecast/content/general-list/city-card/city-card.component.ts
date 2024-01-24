@@ -10,5 +10,4 @@ import {WeatherDataInterface} from "../../../interfaces/weather-data.interface";
 })
 export class CityCardComponent {
   @Input() weatherData!: WeatherDataInterface;
-
 }
