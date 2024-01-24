@@ -18,7 +18,7 @@
 <!--  Search-->
   <div class="wrapper">
     <div class="w-[254px] h-[39px]">
-      <input class="search" type="text" placeholder="Search">
+      <input class="search" type="text" placeholder="Search" [(ngModel)]="cityName" (keyup.enter)="onSearchCity()">
     </div>
   </div>
 

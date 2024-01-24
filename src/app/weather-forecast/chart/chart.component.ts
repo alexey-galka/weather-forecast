@@ -11,5 +11,5 @@ import {LeafletModule} from "@asymmetrik/ngx-leaflet";
   styleUrl: './chart.component.scss'
 })
 export class ChartComponent {
-
+  
 }
