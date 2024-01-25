@@ -1,32 +1,33 @@
 import { Component } from '@angular/core';
 import {FavoriteCardComponent} from "./favorite-card/favorite-card.component";
-import {CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+import {CdkDrag, CdkDragDrop, CdkDropList} from "@angular/cdk/drag-drop";
 import {WeatherDataInterface} from "../../interfaces/weather-data.interface";
+import {DataSharingService} from "../../services/data-sharing.service";
+import {Observable} from "rxjs";
+import {AsyncPipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-favorite-list',
   standalone: true,
   imports: [
     FavoriteCardComponent,
-    CdkDropList
+    CdkDropList,
+    AsyncPipe,
+    CdkDrag,
+    NgForOf
   ],
   templateUrl: './favorite-list.component.html',
   styleUrl: './favorite-list.component.scss'
 })
 export class FavoriteListComponent {
-  public favoriteCities: Array<WeatherDataInterface> = [];
+  favoriteCities$: Observable<WeatherDataInterface[]> = this.dataSharingService.favoriteCities$;
+
+  constructor(private dataSharingService: DataSharingService) {}
 
   drop(event: CdkDragDrop<string[]>): void {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(this.favoriteCities, event.previousIndex, event.currentIndex)
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      )
-    }
-
+    const draggedCity = event.item.data;
+    this.dataSharingService.removeFromFavoriteCities(draggedCity);
+    this.dataSharingService.addToGeneralCities(draggedCity);
   }
+
 }

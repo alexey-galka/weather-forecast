@@ -24,7 +24,7 @@ export class WeatherService {
     return this.citySubject$.asObservable();
   }
 
-  getWeather(): Observable<WeatherDataInterface> {
+  public getWeather(): Observable<WeatherDataInterface> {
     const url: string = `http://api.weatherapi.com/v1/current.json?key=${this.key}&q=${this.cityName}`;
     return this.http.get<WeatherDataInterface>(url);
   }

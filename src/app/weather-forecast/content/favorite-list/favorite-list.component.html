@@ -1,5 +1,5 @@
-<div cdkDropList (cdkDropListDropped)="drop($event)">
-  @for (city of favoriteCities; track city) {
-    <app-favorite-card cdkDrag [weatherData]="city">{{city}}</app-favorite-card>
-  }
+<div cdkDropList class="favorite-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let city of favoriteCities$ | async" cdkDrag [cdkDragData]="city">
+    <app-favorite-card [weatherData]="city">{{city}}</app-favorite-card>
+  </div>
 </div>
