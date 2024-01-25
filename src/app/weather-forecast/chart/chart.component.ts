@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import {LeafletModule} from "@asymmetrik/ngx-leaflet";
+import { Component, AfterViewInit } from '@angular/core';
+import { ChartService } from "../services/chart.service";
 
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [
-    LeafletModule,
-  ],
   templateUrl: './chart.component.html',
-  styleUrl: './chart.component.scss'
+  styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent {
-  
+export class ChartComponent implements AfterViewInit {
+  constructor(private chartService: ChartService) {}
+
+  ngAfterViewInit(): void {
+    this.chartService.initializeMap('map');
+  }
 }

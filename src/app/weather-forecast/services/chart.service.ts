@@ -15,8 +15,4 @@ export class ChartService {
       attribution: '© OpenStreetMap contributors',
     }).addTo(this.map);
   }
-
-  getMap(): L.Map | undefined {
-    return this.map;
-  }
 }

@@ -1,1 +1,5 @@
-<app-favorite-card></app-favorite-card>
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+  @for (city of favoriteCities; track city) {
+    <app-favorite-card cdkDrag [weatherData]="city">{{city}}</app-favorite-card>
+  }
+</div>
